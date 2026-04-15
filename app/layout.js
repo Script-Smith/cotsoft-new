@@ -14,9 +14,9 @@ const spaceGrotesk = Great_Vibes({
 })
 
 export const metadata = {
-  title: "Home | Cotsoft",
+  title: "Cotsoft",
   description:
-    "V2V Holidays brings your travel dreams to life, whether you are cruising in luxury, exploring lively cities, or unwinding at a top-tier resort.",
+    "At Cotsoft, we are redefining comfort and style through innovative, sustainable practices. Promoted by visionary female entrepreneurs, our brand combines cutting-edge technology with skilled craftsmanship to create premium-quality fashion essentials. From using the finest cotton yarns and synthetic filaments to embracing eco-friendly practices, we ensure every product reflects durability, fit, and a commitment to excellence. At Cotsoft, we blend global standards with local expertise to deliver exceptional products for every occasion. Headquartered in Bhopal, our skilled team ensures innovation, sustainability, and customer satisfaction remain at the heart of everything we do",
   icons:{
     icon: "/logo.png"
   }

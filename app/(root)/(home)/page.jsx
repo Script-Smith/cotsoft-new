@@ -11,14 +11,13 @@ import Temp from '@/components/sections/Temp'
 const Home = () => {
   return (
     <>
-      <Temp/>
-      {/* <HeroSection />
+      <HeroSection />
       <SocksCollection />
       <NewCollectionBanner />
       <EditorialSpotlight />
       <LeatherCollection />
       <CategoryShowcase />
-      <LookbookHighlight/> */}
+      <LookbookHighlight/>
     </>
   )
 }

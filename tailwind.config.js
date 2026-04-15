@@ -93,13 +93,6 @@ module.exports = {
         "dark-100": "0px 2px 10px 0px rgba(46, 52, 56, 0.10)",
         "dark-200": "2px 0px 20px 0px rgba(39, 36, 36, 0.04)",
       },
-      backgroundImage: {
-        "texture": "url('/textures/V2V01.png')",
-        "texture-2": "url('/textures/V2V02.png')",
-        "texture-3": "url('/textures/V2V.png')",
-        "texture-4": "url('/textures/V2V3.png')",
-        "texture-5": "url('/textures/V2V321.png')",
-      },
       screens: {
         xs: "420px",
       },
