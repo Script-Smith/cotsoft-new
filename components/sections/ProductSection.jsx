@@ -6,24 +6,24 @@ import Link from 'next/link'
 
 const products = [
   {
-    title: 'Black Ankle Socks',
+    title: 'Cotsoft Socks',
     price: '₹400',
-    image: 'https://images.squarespace-cdn.com/content/v1/5e1722e826484743f588e3c5/1696334540381-M40Q0I1IE32UM0UGF4IF/Day2_Shot9_021170170_84_7974copy.jpg?format=300w',
+    image: '/images/test/1.png',
   },
   {
-    title: 'Red Ribbed Socks',
+    title: 'Cotsoft Socks',
     price: '₹400',
-    image: 'https://images.squarespace-cdn.com/content/v1/5e1722e826484743f588e3c5/1696334550334-8SMJLTY7TUHMNKFNHZRJ/Day2_Shot1_021131755_42_145v2.jpg?format=300w',
+    image: '/images/test/2.png',
   },
   {
-    title: 'Patterned Crew Socks',
+    title: 'Cotsoft Socks',
     price: '₹400',
-    image: 'https://images.squarespace-cdn.com/content/v1/5e1722e826484743f588e3c5/1696334543915-C76OG5ZOKHJ9GGVKTXYC/Day2_Shot2_021160035_01_6070copy.jpg?format=300w',
+    image: '/images/test/3.png',
   },
   {
-    title: 'Yellow Low-Cut Socks',
+    title: 'Cotsoft Socks',
     price: '₹400',
-    image: 'https://images.squarespace-cdn.com/content/v1/5e1722e826484743f588e3c5/1696334541784-VO0ZERFG7RESIRH8YGUE/Day2_Shot7_021140803_14_3809.jpg?format=300w',
+    image: '/images/test/1.png',
   },
 ]
 

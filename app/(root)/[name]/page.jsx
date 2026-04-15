@@ -13,7 +13,7 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 
 const product = {
   id: 1,
-  name: "Maroon Cable Knit Socks",
+  name: "Cotsoft Socks",
   price: 18,
   originalPrice: 24,
   rating: 4.8,
@@ -24,10 +24,10 @@ const product = {
   size: "One Size (US 6-12)",
   inStock: true,
   images: [
-    "/placeholder.svg?height=600&width=600",
-    "/placeholder.svg?height=600&width=600",
-    "/placeholder.svg?height=600&width=600",
-    "/placeholder.svg?height=600&width=600",
+    "/images/test/1png",
+    "/images/test/1png",
+    "/images/test/1png",
+    "/images/test/1png",
   ],
   description:
     "Experience timeless elegance with our premium maroon cable knit socks. Crafted from the finest cotton blend, these socks offer exceptional comfort and durability while maintaining a sophisticated aesthetic that complements any wardrobe.",
@@ -110,7 +110,7 @@ export default function ProductPage() {
           <div className="space-y-4">
             <div className="aspect-square bg-gray-50 rounded-lg overflow-hidden">
               <Image
-                src={product.images[selectedImage] || "/placeholder.svg"}
+                src={"/images/test/1.png"}
                 alt={product.name}
                 width={600}
                 height={600}
@@ -127,7 +127,7 @@ export default function ProductPage() {
                   }`}
                 >
                   <Image
-                    src={image || "/placeholder.svg"}
+                    src={image || "/images/test/1.png"}
                     alt={`${product.name} view ${index + 1}`}
                     width={150}
                     height={150}
@@ -163,13 +163,13 @@ export default function ProductPage() {
             </div>
 
             <div className="flex items-baseline gap-3">
-              <span className="text-3xl font-medium text-gray-900">${product.price}</span>
+              <span className="text-3xl font-medium text-gray-900">₹400</span>
               {product.originalPrice && (
-                <span className="text-xl text-gray-500 line-through">${product.originalPrice}</span>
+                <span className="text-xl text-gray-500 line-through">₹500</span>
               )}
               {product.originalPrice && (
                 <Badge variant="destructive" className="text-xs">
-                  {Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100)}% OFF
+                  20% OFF
                 </Badge>
               )}
             </div>
