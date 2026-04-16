@@ -31,7 +31,7 @@ export default function About() {
       <section className="container mx-auto px-4 sm:px-6 mb-24 md:mb-32">
         <div className="max-w-3xl mx-auto text-center space-y-8">
           <h2 className="text-2xl md:text-3xl lg:text-4xl leading-snug font-serif text-gray-900">
-            "Our mission is to revolutionize the industry through advanced technology, unwavering commitment to innovation, and a deep-rooted focus on sustainability."
+            &quot;Our mission is to revolutionize the industry through advanced technology, unwavering commitment to innovation, and a deep-rooted focus on sustainability.&quot;
           </h2>
           <p className="text-sm md:text-base text-gray-500 uppercase tracking-widest font-light">
             — The Promoters
@@ -79,7 +79,7 @@ export default function About() {
               Ethical <span className="italic font-serif">Practices</span>
             </h2>
             <p className="text-gray-600 font-light leading-relaxed text-lg">
-              Sustainability isn't just a word; it's integrated throughout our entire production process. We believe in empowering our workforce and community through ethical practices, fostering a culture of sustainable and responsible growth.
+              Sustainability isn&apos;t just a word; it&apos;s integrated throughout our entire production process. We believe in empowering our workforce and community through ethical practices, fostering a culture of sustainable and responsible growth.
             </p>
           </div>
         </div>
