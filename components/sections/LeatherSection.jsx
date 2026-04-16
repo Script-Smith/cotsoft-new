@@ -1,95 +1,127 @@
-import Image from "next/image"
+"use client";
+
+import Image from 'next/image';
+import { motion } from 'framer-motion';
+
+const products = [
+  {
+    name: 'Classic Rider Jacket',
+    price: '₹2,499.00',
+    image: '/images/p1.jpg',
+  },
+  {
+    name: 'Scarlet Croc Trench',
+    price: '₹3,999.00',
+    image: '/images/p2.jpg',
+  },
+  {
+    name: 'Vintage Noir Leather',
+    price: '₹2,999.00',
+    image: '/images/p1.jpg',
+  },
+  {
+    name: 'Oxblood Moto Jacket',
+    price: '₹3,499.00',
+    image: '/images/p2.jpg',
+  }
+];
 
 export default function LeatherCollection() {
   return (
-    <section className="container">
-      <div className="grid grid-cols-1 lg:grid-cols-2">
-        {/* Left Column - Light Background with Products */}
-        <div className="flex flex-col justify-center items-center xl:px-8 xl:py-16">
-          <div className="max-w-lg w-full space-y-12">
-            {/* Header */}
-            <header className="text-center space-y-2">
-              <h2 className="text-3xl lg:text-4xl text-gray-800 font-light">
-                Iconic <span className="italic font-serif">Leather:</span>
-              </h2>
-              <p className="text-xl lg:text-2xl text-gray-700 italic font-serif">From Rebel to Classic Shapes</p>
-            </header>
-
-            {/* Products Layout */}
-            <div className="grid grid-cols-2 xl:gap-8 items-start">
-              {/* Left Column - Red Trench Coat */}
-              <div className="space-y-4">
-                <div className="flex h-[420px] xl:h-[409px] justify-center">
-                  <Image
-                    src="/images/p2.jpg"
-                    alt="Scarlet Croc Trench"
-                    width={600}
-                    height={600}
-                    className="object-cover"
-                  />
-                </div>
-                <div className="text-center space-y-1">
-                  <h3 className="text-xs font-medium tracking-wider text-gray-800 uppercase">SCARLET CROC TRENCH</h3>
-                  <p className="text-sm text-gray-600">$980</p>
-                </div>
-              </div>
-
-              {/* Right Column - Two Black Jackets Stacked */}
-              <div className="space-y-8">
-                {/* Top Black Jacket */}
-                <div className="space-y-4">
-                  <div className="flex justify-center">
-                    <Image
-                      src="/images/p1.jpg"
-                      alt="Classic Rider Leather Jacket"
-                      width={160}
-                      height={180}
-                      className="object-cover"
-                    />
-                  </div>
-                  <div className="text-center space-y-1">
-                    <h3 className="text-xs font-medium tracking-wider text-gray-800 uppercase">
-                      CLASSIC RIDER LEATHER JACKET
-                    </h3>
-                    <p className="text-sm text-gray-600">$650</p>
-                  </div>
-                </div>
-
-                {/* Bottom Black Jacket */}
-                <div className="space-y-4">
-                  <div className="flex justify-center">
-                    <Image
-                      src="/images/p1.jpg"
-                      alt="Vintage Noir Leather Jacket"
-                      width={160}
-                      height={180}
-                      className="object-cover"
-                    />
-                  </div>
-                  <div className="text-center space-y-1">
-                    <h3 className="text-xs font-medium tracking-wider text-gray-800 uppercase">
-                      VINTAGE NOIR LEATHER JACKET
-                    </h3>
-                    <p className="text-sm text-gray-600">$750</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+    <section className="w-full bg-white py-20 md:py-32 border-b border-[#0F1117]/5">
+      <div className="container mx-auto px-4 md:px-8 max-w-[1400px]">
+        
+        {/* 1. Typographic Header Lockup */}
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-12 md:mb-20 gap-8">
+           <div className="overflow-hidden">
+             <motion.h2 
+               initial={{ y: "100%", opacity: 0 }}
+               whileInView={{ y: "0%", opacity: 1 }}
+               viewport={{ once: true, margin: "-50px" }}
+               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+               className="text-5xl md:text-6xl lg:text-7xl leading-[1.05] font-light tracking-tight text-[#0F1117]"
+             >
+               Iconic <br className="hidden sm:block" />
+               <span className="italic font-serif text-[#0F1117]/80">Leather.</span>
+             </motion.h2>
+           </div>
+           
+           <motion.div 
+             initial={{ opacity: 0, x: 20 }}
+             whileInView={{ opacity: 1, x: 0 }}
+             viewport={{ once: true }}
+             transition={{ duration: 0.8, delay: 0.2 }}
+             className="max-w-xs flex flex-col gap-4 lg:text-right"
+           >
+             <span className="h-[1px] w-12 lg:w-full bg-[#0F1117]/20 lg:ml-auto"></span>
+             <p className="text-[10px] sm:text-xs uppercase tracking-[0.2em] md:tracking-[0.3em] text-[#0F1117]/50 leading-relaxed font-medium">
+               From rebel silhouettes to <br className="hidden lg:block" /> classic foundational shapes.
+             </p>
+           </motion.div>
         </div>
 
-        {/* Right Column - Hero Image */}
-        <div className="relative max-sm:hidden overflow-hidden">
-          <Image
-            src="/images/side3.png"
-            alt="Model in black leather jacket with red lipstick against red background"
-            fill
-            className="object-cover object-center"
-            sizes="(max-width: 1024px) 100vw, 50vw"
-            priority
-          />
+        {/* 2. The Asymmetrical Target Split Layout */}
+        <div className="flex flex-col-reverse lg:flex-row gap-10 lg:gap-20 items-start relative">
+          
+          {/* Left: Cascading Asymmetrical Product Grid */}
+          <div className="w-full lg:w-[55%] grid grid-cols-1 sm:grid-cols-2 gap-x-4 sm:gap-x-6 gap-y-12 lg:gap-y-16">
+             {products.map((item, idx) => (
+               <motion.div 
+                 key={idx}
+                 initial={{ opacity: 0, y: 40 }}
+                 whileInView={{ opacity: 1, y: 0 }}
+                 viewport={{ once: true, margin: "-50px" }}
+                 transition={{ duration: 0.8, delay: (idx % 2) * 0.1, ease: [0.16, 1, 0.3, 1] }}
+                 className={`flex flex-col group cursor-pointer outline-none ${idx % 2 !== 0 ? 'sm:mt-16 xl:mt-24' : ''}`}
+               >
+                 <div className="relative aspect-[4/5] w-full overflow-hidden bg-[#FAF9F6] mb-4 p-4 md:p-6 flex items-center justify-center border border-[#0F1117]/5">
+                   <Image
+                     src={item.image}
+                     alt={item.name}
+                     fill
+                     className="object-contain group-hover:scale-[1.03] transition-transform duration-700 ease-[0.16,1,0.3,1] p-4 sm:p-6 mix-blend-multiply opacity-90 group-hover:opacity-100"
+                   />
+                 </div>
+                 
+                 <div className="flex flex-col border-t border-transparent group-hover:border-[#0F1117]/10 pt-2 transition-colors duration-300">
+                   <div className="flex justify-between items-start gap-4">
+                     <h3 className="text-[10px] sm:text-sm font-medium tracking-widest uppercase text-[#0F1117] group-hover:text-[#7D9A75] transition-colors leading-snug">
+                       {item.name}
+                     </h3>
+                     <p className="text-[10px] sm:text-sm font-mono tracking-tighter text-[#0F1117] shrink-0 mt-[2px]">
+                       {item.price}
+                     </p>
+                   </div>
+                 </div>
+               </motion.div>
+             ))}
+          </div>
+
+          {/* Right: Sticky Editorial Image */}
+          <div className="w-full lg:w-[45%] lg:sticky lg:top-[120px] h-auto lg:h-[75vh] z-10">
+             <motion.div 
+               initial={{ opacity: 0, scale: 0.95 }}
+               whileInView={{ opacity: 1, scale: 1 }}
+               viewport={{ once: true }}
+               transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+               className="relative w-full aspect-[3/4] lg:aspect-auto lg:h-[75vh] overflow-hidden group border border-[#0F1117]/5 bg-[#FAF9F6]"
+             >
+               <Image
+                 src="/images/side3.png"
+                 alt="Model in Leather Jacket"
+                 fill
+                 className="object-cover object-center group-hover:scale-[1.03] transition-transform duration-1000 ease-[0.16,1,0.3,1]"
+                 priority
+               />
+               <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent pointer-events-none mix-blend-multiply opacity-30" />
+             </motion.div>
+             <p className="mt-4 text-[8px] sm:text-[10px] tracking-widest uppercase text-[#0F1117]/40 font-medium text-right">
+               Fig 2. — The Iconic Leather Edit
+             </p>
+          </div>
+          
         </div>
       </div>
     </section>
-  )
+  );
 }

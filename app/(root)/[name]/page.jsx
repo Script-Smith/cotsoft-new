@@ -1,21 +1,35 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import Image from "next/image"
-import Link from "next/link"
-import { ArrowLeft, Heart, Share2, Star, ShoppingCart, ExternalLink, Minus, Plus } from "lucide-react"
+import { useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import {
+  ArrowLeft,
+  Heart,
+  Share2,
+  Star,
+  ShoppingCart,
+  ExternalLink,
+  Minus,
+  Plus,
+} from "lucide-react";
 
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Separator } from "@/components/ui/separator"
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Separator } from "@/components/ui/separator";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const product = {
   id: 1,
   name: "Cotsoft Socks",
-  price: 18,
-  originalPrice: 24,
+  price: 399,
+  originalPrice: 499,
   rating: 4.8,
   reviews: 127,
   category: "Cable Knit",
@@ -48,44 +62,44 @@ const product = {
   ],
   amazonUrl: "https://amazon.com/product-link",
   flipkartUrl: "https://flipkart.com/product-link",
-}
+};
 
 const relatedProducts = [
   {
     id: 2,
     name: "Classic Black Rib",
-    price: 16,
+    price: 349,
     image: "/placeholder.svg?height=300&width=300",
   },
   {
     id: 3,
     name: "Navy Cable Knit",
-    price: 18,
+    price: 399,
     image: "/placeholder.svg?height=300&width=300",
   },
   {
     id: 4,
     name: "Gray Wool Blend",
-    price: 22,
+    price: 449,
     image: "/placeholder.svg?height=300&width=300",
   },
   {
     id: 5,
     name: "White Cotton Crew",
-    price: 20,
+    price: 399,
     image: "/placeholder.svg?height=300&width=300",
   },
-]
+];
 
 export default function ProductPage() {
-  const [selectedImage, setSelectedImage] = useState(0)
-  const [quantity, setQuantity] = useState(1)
-  const [isWishlisted, setIsWishlisted] = useState(false)
+  const [selectedImage, setSelectedImage] = useState(0);
+  const [quantity, setQuantity] = useState(1);
+  const [isWishlisted, setIsWishlisted] = useState(false);
 
   const handleBuyNow = (platform) => {
-    const url = platform === "amazon" ? product.amazonUrl : product.flipkartUrl
-    window.open(url, "_blank")
-  }
+    const url = platform === "amazon" ? product.amazonUrl : product.flipkartUrl;
+    window.open(url, "_blank");
+  };
 
   return (
     <div className="min-h-screen bg-white">
@@ -123,7 +137,9 @@ export default function ProductPage() {
                   key={index}
                   onClick={() => setSelectedImage(index)}
                   className={`aspect-square bg-gray-50 rounded-lg overflow-hidden border-2 transition-colors ${
-                    selectedImage === index ? "border-gray-900" : "border-transparent hover:border-gray-300"
+                    selectedImage === index
+                      ? "border-gray-900"
+                      : "border-transparent hover:border-gray-300"
                   }`}
                 >
                   <Image
@@ -144,14 +160,18 @@ export default function ProductPage() {
               <Badge variant="secondary" className="mb-2">
                 {product.category}
               </Badge>
-              <h1 className="text-3xl md:text-4xl font-light text-gray-900 mb-2">{product.name}</h1>
+              <h1 className="text-3xl md:text-4xl font-light text-gray-900 mb-2">
+                {product.name}
+              </h1>
               <div className="flex items-center gap-4 mb-4">
                 <div className="flex items-center gap-1">
                   {[...Array(5)].map((_, i) => (
                     <Star
                       key={i}
                       className={`h-4 w-4 ${
-                        i < Math.floor(product.rating) ? "fill-yellow-400 text-yellow-400" : "text-gray-300"
+                        i < Math.floor(product.rating)
+                          ? "fill-yellow-400 text-yellow-400"
+                          : "text-gray-300"
                       }`}
                     />
                   ))}
@@ -163,9 +183,13 @@ export default function ProductPage() {
             </div>
 
             <div className="flex items-baseline gap-3">
-              <span className="text-3xl font-medium text-gray-900">₹400</span>
+              <span className="text-3xl font-medium text-gray-900">
+                ₹{product.price}
+              </span>
               {product.originalPrice && (
-                <span className="text-xl text-gray-500 line-through">₹500</span>
+                <span className="text-xl text-gray-500 line-through">
+                  ₹{product.originalPrice}
+                </span>
               )}
               {product.originalPrice && (
                 <Badge variant="destructive" className="text-xs">
@@ -190,7 +214,9 @@ export default function ProductPage() {
                 </div>
                 <div>
                   <span className="text-gray-600">Stock:</span>
-                  <span className={`ml-2 font-medium ${product.inStock ? "text-green-600" : "text-red-600"}`}>
+                  <span
+                    className={`ml-2 font-medium ${product.inStock ? "text-green-600" : "text-red-600"}`}
+                  >
                     {product.inStock ? "In Stock" : "Out of Stock"}
                   </span>
                 </div>
@@ -212,8 +238,15 @@ export default function ProductPage() {
                   >
                     <Minus className="h-4 w-4" />
                   </Button>
-                  <span className="px-4 py-2 text-center min-w-[3rem]">{quantity}</span>
-                  <Button variant="ghost" size="sm" onClick={() => setQuantity(quantity + 1)} className="h-10 w-10 p-0">
+                  <span className="px-4 py-2 text-center min-w-[3rem]">
+                    {quantity}
+                  </span>
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    onClick={() => setQuantity(quantity + 1)}
+                    className="h-10 w-10 p-0"
+                  >
                     <Plus className="h-4 w-4" />
                   </Button>
                 </div>
@@ -222,17 +255,26 @@ export default function ProductPage() {
               <div className="flex flex-col sm:flex-row gap-3">
                 <DropdownMenu>
                   <DropdownMenuTrigger asChild>
-                    <Button size="lg" className="flex-1 h-12 bg-gray-900 hover:bg-gray-800">
+                    <Button
+                      size="lg"
+                      className="flex-1 h-12 bg-gray-900 hover:bg-gray-800"
+                    >
                       <ShoppingCart className="h-4 w-4 mr-2" />
                       Buy Now
                     </Button>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent align="center" className="w-48">
-                    <DropdownMenuItem onClick={() => handleBuyNow("amazon")} className="cursor-pointer">
+                    <DropdownMenuItem
+                      onClick={() => handleBuyNow("amazon")}
+                      className="cursor-pointer"
+                    >
                       <ExternalLink className="h-4 w-4 mr-2" />
                       Buy on Amazon
                     </DropdownMenuItem>
-                    <DropdownMenuItem onClick={() => handleBuyNow("flipkart")} className="cursor-pointer">
+                    <DropdownMenuItem
+                      onClick={() => handleBuyNow("flipkart")}
+                      className="cursor-pointer"
+                    >
                       <ExternalLink className="h-4 w-4 mr-2" />
                       Buy on Flipkart
                     </DropdownMenuItem>
@@ -245,10 +287,16 @@ export default function ProductPage() {
                   onClick={() => setIsWishlisted(!isWishlisted)}
                   className="h-12 px-6"
                 >
-                  <Heart className={`h-4 w-4 ${isWishlisted ? "fill-red-500 text-red-500" : ""}`} />
+                  <Heart
+                    className={`h-4 w-4 ${isWishlisted ? "fill-red-500 text-red-500" : ""}`}
+                  />
                 </Button>
 
-                <Button variant="outline" size="lg" className="h-12 px-6 bg-transparent">
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="h-12 px-6 bg-transparent"
+                >
                   <Share2 className="h-4 w-4" />
                 </Button>
               </div>
@@ -266,7 +314,9 @@ export default function ProductPage() {
             </TabsList>
             <TabsContent value="description" className="mt-8">
               <div className="prose max-w-none">
-                <p className="text-gray-700 leading-relaxed text-lg">{product.description}</p>
+                <p className="text-gray-700 leading-relaxed text-lg">
+                  {product.description}
+                </p>
               </div>
             </TabsContent>
             <TabsContent value="features" className="mt-8">
@@ -295,14 +345,23 @@ export default function ProductPage() {
         {/* Related Products */}
         <div className="mt-20">
           <div className="flex items-center justify-between mb-8">
-            <h2 className="text-2xl font-light text-gray-900">You might also like</h2>
-            <Link href="/category" className="text-gray-600 hover:text-gray-900 transition-colors">
+            <h2 className="text-2xl font-light text-gray-900">
+              You might also like
+            </h2>
+            <Link
+              href="/category"
+              className="text-gray-600 hover:text-gray-900 transition-colors"
+            >
               View all
             </Link>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {relatedProducts.map((relatedProduct) => (
-              <Link key={relatedProduct.id} href={`/product/${relatedProduct.id}`} className="group">
+              <Link
+                key={relatedProduct.id}
+                href={`/product/${relatedProduct.id}`}
+                className="group"
+              >
                 <div className="aspect-square bg-gray-50 rounded-lg overflow-hidden mb-3">
                   <Image
                     src={relatedProduct.image || "/placeholder.svg"}
@@ -312,13 +371,15 @@ export default function ProductPage() {
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                 </div>
-                <h3 className="font-medium text-gray-900 mb-1">{relatedProduct.name}</h3>
-                <p className="text-gray-600">${relatedProduct.price}</p>
+                <h3 className="font-medium text-gray-900 mb-1">
+                  {relatedProduct.name}
+                </h3>
+                <p className="text-gray-600">₹{relatedProduct.price}</p>
               </Link>
             ))}
           </div>
         </div>
       </div>
     </div>
-  )
+  );
 }
