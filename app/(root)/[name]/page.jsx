@@ -154,7 +154,7 @@ export default function ProductPage() {
             </div>
           </div>
 
-          {/* Product Details */}
+
           <div className="space-y-6">
             <div>
               <Badge variant="secondary" className="mb-2">
